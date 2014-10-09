@@ -25,6 +25,8 @@ import javax.inject.Inject;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
+import cusip.scraper.ProgressIndicator;
+
 /**
  * The main class that runs the program.
  *
@@ -47,9 +49,12 @@ public class Main {
   @Inject
   private CusipReporter reporter;
   
+  @Inject
+  private ProgressIndicator progressIndicator;
+  
   public void run() {
     List<String> cusips = retriever.getCusipsToFind();
-    System.out.println("--- Will be fetching details for " + cusips.size() + " cusips");
+    progressIndicator.setTotalCount(cusips.size());
     List<CusipSearchResult> results = scraper.scrapeCusips(cusips);
     System.out.println("--- Completed fetching details for each cusip");
     reporter.report(results);

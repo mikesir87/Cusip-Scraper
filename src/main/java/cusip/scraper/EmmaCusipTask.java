@@ -57,6 +57,9 @@ public class EmmaCusipTask implements Callable<CusipSearchResult> {
   
   @Inject
   protected EmmaSessionObtainer sessionObtainer;
+  
+  @Inject
+  protected ProgressIndicator progressIndicator;
 
   private String cusip;
   
@@ -93,6 +96,7 @@ public class EmmaCusipTask implements Callable<CusipSearchResult> {
     }
     finally {
       response.close();
+      progressIndicator.incrementCompletedCount();
     }
   }
 

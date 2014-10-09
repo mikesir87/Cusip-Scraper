@@ -31,10 +31,12 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 
 import cusip.scraper.ConcreteCusipTaskFactory;
+import cusip.scraper.ConcreteProgressIndicator;
 import cusip.scraper.ConcurrentCusipScraper;
 import cusip.scraper.CusipTaskFactory;
 import cusip.scraper.EmmaSessionObtainer;
 import cusip.scraper.HttpClientEmmaSessionObtainer;
+import cusip.scraper.ProgressIndicator;
 
 /**
  * Module definitions for setting up the project for Guice.
@@ -57,6 +59,7 @@ public class GuiceModule extends AbstractModule {
     bind(CusipTaskFactory.class).to(ConcreteCusipTaskFactory.class).asEagerSingleton();
     bind(EmmaSessionObtainer.class).to(HttpClientEmmaSessionObtainer.class).asEagerSingleton();
     bind(CusipReporter.class).to(CsvCusipReporter.class).asEagerSingleton();
+    bind(ProgressIndicator.class).to(ConcreteProgressIndicator.class).asEagerSingleton();
   }
   
   /**
