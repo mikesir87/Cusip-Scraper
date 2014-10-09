@@ -11,8 +11,7 @@ Currently, the only data scraped is the following:
 
 ## Pre-requisites
 
-This project is a Maven project, so requires Maven to be installed on your machine.  Maven is a build tool for Java projects that does a lot.  But, fo
-r this project, it's used for dependency management.
+This project is a Maven project, so requires Maven to be installed on your machine.  Maven is a build tool for Java projects that does a lot.  But, for this project, it's used for dependency management.
 
 - [Installing Maven for Windows](http://www.mkyong.com/maven/how-to-install-maven-in-windows/)
 
